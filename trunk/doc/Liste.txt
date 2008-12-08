@@ -1,0 +1,178 @@
+===
+Liste de création
+
+todo:
+    * merge edit and new formular
+    * hide id
+    * create views
+
+
+=================
+
+=======================
+==Création project et homepage
+rails DocManager -d sqlite3
+ruby script/generate controller home index
+mv public\index.html public\index_old.html
+
+scite config/routes.rb
+
+========== a la fin du fichier, ajouter: map.root :controller => "home" au dessus des routes par défaut
+
+  map.root :controller => "home"
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end
+
+
+==========
+
+Aller sur http://localhost:3000 pour voir la page d'acceuil
+
+
+==Créer base de donné
+
+
+rake db:create
+ruby script/generate scaffold Project id:integer name:string project_number:string fs_root:string
+ruby script/generate scaffold DocumentType id:integer project_id:integer name:string description:string dir_name:string prefix:string
+ruby script/generate scaffold Document  id:string project_id:integer document_type_id:integer doc_number:integer description:string fname_suffix:string
+ruby script/generate scaffold DocumentVersion id:integer document_id:string version:string extension:string author:string released:date reviewed:boolean reviewref:string accepted:boolean with_comments:boolean completed:date paper:boolean testresult_doc:string
+
+
+rake db:migrate
+
+=== Remplire database Database
+
+
+= Détruire scaffold
+ruby  script/destroy scaffold Document
+ruby  script/destroy scaffold DocumentVersion
+ruby  script/destroy scaffold Project
+ruby  script/destroy scaffold DocumentType
+
+
+
+
+
+=Editer le modèle document =
+
+
+scite app/views/home/index.html.erb
+==============
+<h1>Document manager</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<ul>
+<li><%= link_to "Projects", projects_path %></li>
+<li><%= link_to "Document types", document_types_path %></li>
+<li><%= link_to "Documents", documents_path %></li>
+<li><%= link_to "Document versions", document_versions_path %></li>
+</ul>
+
+======
+
+définir les ActiveRecords
+scite app\models\*.*
+
+
+======
+
+class Document < ActiveRecord::Base
+        has_many :DocumentVersion
+        validates_presence_of :description,:fname_suffix,:DocumentType,:doc_number,:project
+        validates_length_of :description, :minimum => 5
+        validates_uniqueness_of :id,:doc_number
+        has_one :project
+        has_one :document_type
+end
+
+
+class DocumentType < ActiveRecord::Base
+    has_many :document
+    has_one :project
+end
+
+class DocumentVersion < ActiveRecord::Base
+    has_one :document
+    validates_presence_of :document_id
+end
+
+
+class Project < ActiveRecord::Base
+    has_many :document
+end
+
+
+=======
+
+
+
+===populate Database:
+scite lib\tasks\populate.rake
+rake db:populate
+
+
+
+
+
+=Combo box=
+scite app\controllers\document_versions_controller.rb
+edit 
+========
+  def new
+@documents_list = Document.find(:all)
+    
+def edit
+    @documents_list = Document.find(:all)
+    
+============
+
+
+
+Afficher la combo box sur le formulaire d'édition
+scite app\views\document_versions\new.html.erb
+
+======
+
+   <%= f.label :document_id %><br />
+      <select id="document_id" name="item[document_id]">
+        <%= options_from_collection_for_select @documents_list, "id", "fname_suffix" %>
+          </select>
+      
+
+=====
+
+
+
+= Détruire scaffold
+ruby  script/destroy scaffold Document
+ruby  script/destroy scaffold DocumentVersion
+
+
+
+
+
+
+
+
+
+
+scite config\database.yml
+
+ruby script/generate controller home index
+
+scite app\views\home\index.rhtml ou .html.erb
+
+
+ruby script\server
+
+firefox http://localhost:3000
+
+
+scite config\routes.rb
+
+
+============================
+rem ruby  script/generate  scaffold DocumentVersion id:integer document:doc_number version:string extension:string author:string released:date reviewed:bool document:reviewref accepted:bool with_comments:bool completed:date paper:bool testresultref:string
+rem ruby  script/generate  scaffold DocumentVersion id:integer document:references version:string extension:string author:string released:date reviewed:boolean document:reviewref accepted:boolean with_comments:boolean completed:date paper:boolean testresultref:string
