@@ -1,0 +1,28 @@
+<p>
+  <b>Id:</b>
+  <%=h @document_type.id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @document_type.project_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @document_type.description %>
+</p>
+
+<p>
+  <b>Dir name:</b>
+  <%=h @document_type.dir_name %>
+</p>
+
+<p>
+  <b>Prefix:</b>
+  <%=h @document_type.prefix %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_type_path(@document_type) %> |
+<%= link_to 'Back', document_types_path %>

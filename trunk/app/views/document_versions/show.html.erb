@@ -1,0 +1,68 @@
+<p>
+  <b>Id:</b>
+  <%=h @document_version.id %>
+</p>
+
+<p>
+  <b>Document:</b>
+  <%=h @document_version.document_id %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%=h @document_version.version %>
+</p>
+
+<p>
+  <b>Extension:</b>
+  <%=h @document_version.extension %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @document_version.author %>
+</p>
+
+<p>
+  <b>Released:</b>
+  <%=h @document_version.released %>
+</p>
+
+<p>
+  <b>Reviewed:</b>
+  <%=h @document_version.reviewed %>
+</p>
+
+<p>
+  <b>Reviewref:</b>
+  <%=h @document_version.reviewref %>
+</p>
+
+<p>
+  <b>Accepted:</b>
+  <%=h @document_version.accepted %>
+</p>
+
+<p>
+  <b>With comments:</b>
+  <%=h @document_version.with_comments %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%=h @document_version.completed %>
+</p>
+
+<p>
+  <b>Paper:</b>
+  <%=h @document_version.paper %>
+</p>
+
+<p>
+  <b>Testresult doc:</b>
+  <%=h @document_version.testresult_doc %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_version_path(@document_version) %> |
+<%= link_to 'Back', document_versions_path %>

@@ -1,0 +1,27 @@
+<p>
+Count: <%= @types_list.length  %>
+<% if @types_list.length>0 %>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Project</th>
+    <th>Description</th>
+    <th>Dir name</th>
+    <th>Prefix</th>
+  </tr>
+
+<% for document_type in @types_list %>
+  <tr>
+    <td><%=h document_type.id %></td>
+    <td><%=h document_type.project_id %></td>
+    <td><%=h document_type.description %></td>
+    <td><%=h document_type.dir_name %></td>
+    <td><%=h document_type.prefix %></td>
+    <td><%= link_to 'Show', document_type %></td>
+    <td><%= link_to 'Edit', edit_document_type_path(document_type) %></td>
+  <!-- <td><%= link_to 'Destroy', document_type, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+<% end %>
+</p>

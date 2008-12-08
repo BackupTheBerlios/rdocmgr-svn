@@ -1,0 +1,45 @@
+<p>
+  <b>Id:</b>
+  <%=h @document.id %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @document.project_id %>
+</p>
+
+<p>
+  <b>Document type:</b>
+  <%=h @document.document_type_id %>
+</p>
+
+<p>
+  <b>Doc number:</b>
+  <%=h @document.doc_number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @document.description %>
+</p>
+
+<p>
+  <b>Fname suffix:</b>
+  <%=h @document.fname_suffix %>
+  </p>
+  <p>
+  <br/>
+<%= link_to 'Edit', edit_document_path(@document) %> 
+<%= link_to 'Back', documents_path %>
+</p>
+
+
+
+
+
+
+
+
+
+
+<%= render :partial => "versionlist" %>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  document_id: MyString
+  version: MyString
+  extension: MyString
+  author: MyString
+  released: 2008-12-05
+  reviewed: false
+  reviewref: MyString
+  accepted: false
+  with_comments: false
+  completed: 2008-12-05
+  paper: false
+  testresult_doc: MyString
+
+two:
+  id: 1
+  document_id: MyString
+  version: MyString
+  extension: MyString
+  author: MyString
+  released: 2008-12-05
+  reviewed: false
+  reviewref: MyString
+  accepted: false
+  with_comments: false
+  completed: 2008-12-05
+  paper: false
+  testresult_doc: MyString

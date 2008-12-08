@@ -1,0 +1,64 @@
+<h1>Editing document_version</h1>
+
+<% form_for(@document_version) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :document_id %><br />
+    <%= f.text_field :document_id %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <%= f.label :extension %><br />
+    <%= f.text_field :extension %>
+  </p>
+  <p>
+    <%= f.label :author %><br />
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :released %><br />
+    <%= f.date_select :released %>
+  </p>
+  <p>
+    <%= f.label :reviewed %><br />
+    <%= f.check_box :reviewed %>
+  </p>
+  <p>
+    <%= f.label :reviewref %><br />
+    <%= f.text_field :reviewref %>
+  </p>
+  <p>
+    <%= f.label :accepted %><br />
+    <%= f.check_box :accepted %>
+  </p>
+  <p>
+    <%= f.label :with_comments %><br />
+    <%= f.check_box :with_comments %>
+  </p>
+  <p>
+    <%= f.label :completed %><br />
+    <%= f.date_select :completed %>
+  </p>
+  <p>
+    <%= f.label :paper %><br />
+    <%= f.check_box :paper %>
+  </p>
+  <p>
+    <%= f.label :testresult_doc %><br />
+    <%= f.text_field :testresult_doc %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @document_version %> |
+<%= link_to 'Back', document_versions_path %>

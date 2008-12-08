@@ -1,0 +1,43 @@
+<p>
+Count: <%= @versions.length  %>
+<% if @versions.length>0 %>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Document</th>
+    <th>Version</th>
+    <th>Extension</th>
+    <th>Author</th>
+    <th>Released</th>
+    <th>Reviewed</th>
+    <th>Reviewref</th>
+    <th>Accepted</th>
+    <th>With comments</th>
+    <th>Completed</th>
+    <th>Paper</th>
+    <th>Testresult doc</th>
+  </tr>
+
+<% for document_version in @versions %>
+  <tr>
+    <td><%=h document_version.id %></td>
+    <td><%=h document_version.document_id %></td>
+    <td><%=h document_version.version %></td>
+    <td><%=h document_version.extension %></td>
+    <td><%=h document_version.author %></td>
+    <td><%=h document_version.released %></td>
+    <td><%=h document_version.reviewed %></td>
+    <td><%=h document_version.reviewref %></td>
+    <td><%=h document_version.accepted %></td>
+    <td><%=h document_version.with_comments %></td>
+    <td><%=h document_version.completed %></td>
+    <td><%=h document_version.paper %></td>
+    <td><%=h document_version.testresult_doc %></td>
+    <td><%= link_to 'Show', document_version %></td>
+    <td><%= link_to 'Edit', edit_document_version_path(document_version) %></td>
+    <!--<td><%= link_to 'Destroy', document_version, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr><br/>
+<% end %>
+</table>
+<% end %>
+</p>

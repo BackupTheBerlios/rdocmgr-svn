@@ -1,0 +1,26 @@
+<p>
+  <b>Id:</b>
+  <%=h @project.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @project.name %>
+</p>
+
+<p>
+  <b>Project number:</b>
+  <%=h @project.project_number %>
+</p>
+
+<p>
+  <b>Fs root:</b>
+  <%=h @project.fs_root %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+
+<%= render :partial => "doctypesList" %>
