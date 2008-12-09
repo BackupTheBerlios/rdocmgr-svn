@@ -2,30 +2,30 @@
 
 one:
   id: 1
-  document_id: MyString
+  document: 
   version: MyString
   extension: MyString
   author: MyString
-  released: 2008-12-05
+  released: 2008-12-09
   reviewed: false
   reviewref: MyString
   accepted: false
   with_comments: false
-  completed: 2008-12-05
+  completed: 2008-12-09
   paper: false
   testresult_doc: MyString
 
 two:
   id: 1
-  document_id: MyString
+  document: 
   version: MyString
   extension: MyString
   author: MyString
-  released: 2008-12-05
+  released: 2008-12-09
   reviewed: false
   reviewref: MyString
   accepted: false
   with_comments: false
-  completed: 2008-12-05
+  completed: 2008-12-09
   paper: false
   testresult_doc: MyString

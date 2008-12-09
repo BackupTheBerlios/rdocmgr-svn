@@ -2,16 +2,16 @@
 
 one:
   id: MyString
-  project_id: 1
-  document_type_id: 1
+  project: 
+  document_type: 
   doc_number: 1
   description: MyString
   fname_suffix: MyString
 
 two:
   id: MyString
-  project_id: 1
-  document_type_id: 1
+  project: 
+  document_type: 
   doc_number: 1
   description: MyString
   fname_suffix: MyString

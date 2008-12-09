@@ -11,9 +11,25 @@ todo:
 
 =======================
 ==Création project et homepage
-rails DocManager -d sqlite3
+rails rdocmgr -d sqlite3
 ruby script/generate controller home index
 mv public\index.html public\index_old.html
+
+
+scite app/views/home/index.html.erb
+==============
+<h1>Document manager</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<ul>
+<li><%= link_to "Projects", projects_path %></li>
+<li><%= link_to "Document types", document_types_path %></li>
+<li><%= link_to "Documents", documents_path %></li>
+<li><%= link_to "Document versions", document_versions_path %></li>
+</ul>
+
+======
+
 
 scite config/routes.rb
 
@@ -33,13 +49,13 @@ Aller sur http://localhost:3000 pour voir la page d'acceuil
 ==Créer base de donné
 
 
-rake db:create
+
 ruby script/generate scaffold Project id:integer name:string project_number:string fs_root:string
-ruby script/generate scaffold DocumentType id:integer project_id:integer name:string description:string dir_name:string prefix:string
-ruby script/generate scaffold Document  id:string project_id:integer document_type_id:integer doc_number:integer description:string fname_suffix:string
-ruby script/generate scaffold DocumentVersion id:integer document_id:string version:string extension:string author:string released:date reviewed:boolean reviewref:string accepted:boolean with_comments:boolean completed:date paper:boolean testresult_doc:string
+ruby script/generate scaffold DocumentType id:integer project:references name:string description:string dir_name:string prefix:string
+ruby script/generate scaffold Document  id:string project:references document_type:references doc_number:integer description:string fname_suffix:string
+ruby script/generate scaffold DocumentVersion id:integer document:references version:string extension:string author:string released:date reviewed:boolean reviewref:string accepted:boolean with_comments:boolean completed:date paper:boolean testresult_doc:string
 
-
+rake db:create
 rake db:migrate
 
 === Remplire database Database
@@ -58,19 +74,7 @@ ruby  script/destroy scaffold DocumentType
 =Editer le modèle document =
 
 
-scite app/views/home/index.html.erb
-==============
-<h1>Document manager</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 
-<ul>
-<li><%= link_to "Projects", projects_path %></li>
-<li><%= link_to "Document types", document_types_path %></li>
-<li><%= link_to "Documents", documents_path %></li>
-<li><%= link_to "Document versions", document_versions_path %></li>
-</ul>
-
-======
 
 définir les ActiveRecords
 scite app\models\*.*

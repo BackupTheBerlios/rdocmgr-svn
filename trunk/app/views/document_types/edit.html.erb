@@ -1,32 +1,7 @@
 <h1>Editing document_type</h1>
 
-<% form_for(@document_type) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => "doctype_edit" %>
 
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :project_id %><br />
-    <%= f.text_field :project_id %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :dir_name %><br />
-    <%= f.text_field :dir_name %>
-  </p>
-  <p>
-    <%= f.label :prefix %><br />
-    <%= f.text_field :prefix %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
 
 <%= link_to 'Show', @document_type %> |
 <%= link_to 'Back', document_types_path %>

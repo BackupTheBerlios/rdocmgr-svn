@@ -1,4 +1,7 @@
 class DocumentType < ActiveRecord::Base
-    has_many :document
-    has_one :project
+  belongs_to :project
+  has_many :document
+  validates_presence_of :name
+  validates_presence_of :project
+  validates_length_of :name, :minimum => 5
 end

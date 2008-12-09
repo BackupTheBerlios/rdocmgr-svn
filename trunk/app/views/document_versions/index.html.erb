@@ -20,7 +20,7 @@
 <% for document_version in @document_versions %>
   <tr>
     <td><%=h document_version.id %></td>
-    <td><%=h document_version.document_id %></td>
+    <td><%=h document_version.document.fname_suffix %></td>
     <td><%=h document_version.version %></td>
     <td><%=h document_version.extension %></td>
     <td><%=h document_version.author %></td>

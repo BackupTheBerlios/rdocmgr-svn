@@ -55,8 +55,8 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_DocManager_session',
-    :secret      => '6b61f5a06a4491880bb21366a924bd218c8a77f67de54c514ef2d8bdd84b752940a150b409731f2891fdb410398bcd34c3ac3f74db814dde782f621a278d5795'
+    :session_key => '_rdocmgr_session',
+    :secret      => '198f230978a668f351da11715c28f0536882ebac5bc31cecec9f0103b55368a25f24d4f89302fa282ec37970ec880d114bf6ac77306ad4ce348b2303d307c316'
   }
 
   # Use the database for sessions instead of the cookie-based default,

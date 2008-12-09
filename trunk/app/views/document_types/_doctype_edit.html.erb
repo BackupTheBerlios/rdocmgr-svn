@@ -1,0 +1,37 @@
+
+<% form_for(@document_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :project %><br />
+   
+    
+    <select id="project_id" name="document_type[project_id]">
+        <%= options_from_collection_for_select @prjlist, "id", "name"  , selected=@document_type.project_id %>
+          </select>
+    
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :dir_name %><br />
+    <%= f.text_field :dir_name %>
+  </p>
+  <p>
+    <%= f.label :prefix %><br />
+    <%= f.text_field :prefix %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>

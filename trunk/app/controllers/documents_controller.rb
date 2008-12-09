@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1.xml
   def show
     @document = Document.find(params[:id])
-    @versions = DocumentVersion.find_all_by_document_id(params[:id])
+    @versions =  @document.document_version
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +26,9 @@ class DocumentsController < ApplicationController
   # GET /documents/new.xml
   def new
     @document = Document.new
+    @prjlist = Project.find(:all)
+    @typlist = Project.find_by_id(session[:project_id]).document_type.find(:all)
+    
 
     respond_to do |format|
       format.html # new.html.erb

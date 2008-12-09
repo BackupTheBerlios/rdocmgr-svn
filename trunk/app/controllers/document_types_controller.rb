@@ -25,6 +25,7 @@ class DocumentTypesController < ApplicationController
   # GET /document_types/new.xml
   def new
     @document_type = DocumentType.new
+    @prjlist = Project.find(:all)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,14 @@ class DocumentTypesController < ApplicationController
   # GET /document_types/1/edit
   def edit
     @document_type = DocumentType.find(params[:id])
+    @prjlist = Project.find(:all)
   end
 
   # POST /document_types
   # POST /document_types.xml
   def create
     @document_type = DocumentType.new(params[:document_type])
+    @prjlist = Project.find(:all)
 
     respond_to do |format|
       if @document_type.save

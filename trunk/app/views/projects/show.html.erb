@@ -18,9 +18,7 @@
   <%=h @project.fs_root %>
 </p>
 
+<%= render :partial => "doctypesList" %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
-
-
-<%= render :partial => "doctypesList" %>

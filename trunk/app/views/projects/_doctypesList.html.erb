@@ -5,6 +5,7 @@ Count: <%= @types_list.length  %>
   <tr>
     <th>Id</th>
     <th>Project</th>
+    <th>Name</th>
     <th>Description</th>
     <th>Dir name</th>
     <th>Prefix</th>
@@ -14,6 +15,7 @@ Count: <%= @types_list.length  %>
   <tr>
     <td><%=h document_type.id %></td>
     <td><%=h document_type.project_id %></td>
+    <td><%=h document_type.name %></td>
     <td><%=h document_type.description %></td>
     <td><%=h document_type.dir_name %></td>
     <td><%=h document_type.prefix %></td>

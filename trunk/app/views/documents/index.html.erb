@@ -13,8 +13,8 @@
 <% for document in @documents %>
   <tr>
     <td><%=h document.id %></td>
-    <td><%=h document.project_id %></td>
-    <td><%=h document.document_type_id %></td>
+    <td><%=h document.project.name %></td>
+    <td><%=h document.document_type.name %></td>
     <td><%=h document.doc_number %></td>
     <td><%=h document.description %></td>
     <td><%=h document.fname_suffix %></td>

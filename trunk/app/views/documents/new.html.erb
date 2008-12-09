@@ -8,12 +8,19 @@
     <%= f.text_field :id %>
   </p>
   <p>
-    <%= f.label :project_id %><br />
-    <%= f.text_field :project_id %>
+    <%= f.label :project %><br />
+    
+    <select id="project_id" name="document[project_id]">
+     <%= options_from_collection_for_select @prjlist, "id", "name"  , selected=@document.project_id %>
+     </select>
+    
   </p>
+  Project : <%=session[:project_id] %>
   <p>
-    <%= f.label :document_type_id %><br />
-    <%= f.text_field :document_type_id %>
+    <%= f.label :document_type %><br />
+        <select id="document_type_id" name="document[document_type_id]">
+        <%= options_from_collection_for_select @typlist, "id", "name"  , selected=@document.document_type_id %>
+          </select>
   </p>
   <p>
     <%= f.label :doc_number %><br />

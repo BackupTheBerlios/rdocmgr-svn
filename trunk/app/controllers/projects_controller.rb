@@ -14,7 +14,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-    @types_list = DocumentType.find_all_by_project_id(params[:id])
+    @types_list =@project.document_type
+    session[:project_id] = params[:id]
 
     respond_to do |format|
       format.html # show.html.erb

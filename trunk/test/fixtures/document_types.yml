@@ -2,14 +2,16 @@
 
 one:
   id: 1
-  project_id: 1
+  project: 
+  name: MyString
   description: MyString
   dir_name: MyString
   prefix: MyString
 
 two:
   id: 1
-  project_id: 1
+  project: 
+  name: MyString
   description: MyString
   dir_name: MyString
   prefix: MyString

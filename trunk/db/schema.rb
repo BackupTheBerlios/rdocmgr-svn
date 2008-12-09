@@ -9,10 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081205080633) do
+ActiveRecord::Schema.define(:version => 20081209095704) do
 
   create_table "document_types", :force => true do |t|
     t.integer  "project_id"
+    t.string   "name"
     t.string   "description"
     t.string   "dir_name"
     t.string   "prefix"
@@ -21,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20081205080633) do
   end
 
   create_table "document_versions", :force => true do |t|
-    t.string   "document_id"
+    t.integer  "document_id"
     t.string   "version"
     t.string   "extension"
     t.string   "author"

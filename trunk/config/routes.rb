@@ -1,11 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :projects
-
-  map.resources :document_types
-
   map.resources :document_versions
 
   map.resources :documents
+
+  map.resources :document_types
+
+  map.resources :projects
+
+  map.resources :document_types
 
   # The priority is based upon order of creation: first created -> highest priority.
 
