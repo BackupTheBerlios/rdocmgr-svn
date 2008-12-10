@@ -32,6 +32,12 @@
     <%= f.text_field :prefix %>
   </p>
   <p>
-    <%= f.submit "Update" %>
+  
+    <% if @mode=="new" then %>
+        <%= f.submit "Create"  %>
+    <% else %>
+        <%= f.submit "Update"  %>
+    <% end %>
+
   </p>
 <% end %>

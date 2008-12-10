@@ -1,0 +1,45 @@
+
+<% form_for(@document) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :project %><br />
+  <div id="div_typeList">  
+    <select id="project_id" name="document[project_id]">
+     <%= options_from_collection_for_select @prjlist, "id", "name"  , selected=@document.project_id %>
+     </select>
+    </div>
+  </p>
+  
+ 
+  
+  Project : <%=session[:project_id] %>
+  <p>
+    <%= f.label :document_type %><br />
+     <%= render :partial => "list_doctypes" %>
+  </p>
+  <p>
+    <%= f.label :doc_number %><br />
+    <%= f.text_field :doc_number %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :fname_suffix %><br />
+    <%= f.text_field :fname_suffix %>
+  </p>
+  <p>
+  <% if @mode=="new" then %>
+    <%= f.submit "Create" %>
+    <% else %>
+    <%= f.submit "Update" %>
+    <%end %>
+    
+  </p>
+<% end %>

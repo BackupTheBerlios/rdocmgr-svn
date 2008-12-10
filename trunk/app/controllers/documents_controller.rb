@@ -28,6 +28,7 @@ class DocumentsController < ApplicationController
     @document = Document.new
     @prjlist = Project.find(:all)
     @typlist = Project.find_by_id(session[:project_id]).document_type.find(:all)
+    @mode="new"
     
 
     respond_to do |format|
@@ -39,6 +40,9 @@ class DocumentsController < ApplicationController
   # GET /documents/1/edit
   def edit
     @document = Document.find(params[:id])
+    @prjlist = Project.find(:all)
+    @typlist = @document.project.document_type
+    
   end
 
   # POST /documents

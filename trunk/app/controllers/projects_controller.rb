@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    @mode="new"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,12 +38,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @mode="edit"
   end
 
   # POST /projects
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    @mode=="new"
 
     respond_to do |format|
       if @project.save
@@ -60,6 +63,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    @mode="edit"
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

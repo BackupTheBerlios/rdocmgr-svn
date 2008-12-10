@@ -1,27 +1,7 @@
 <h1>New project</h1>
 
-<% form_for(@project) do |f| %>
-  <%= f.error_messages %>
+<%= render :partial => "prj_edit" %>
 
-  <p>
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </p>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :project_number %><br />
-    <%= f.text_field :project_number %>
-  </p>
-  <p>
-    <%= f.label :fs_root %><br />
-    <%= f.text_field :fs_root %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+
 
 <%= link_to 'Back', projects_path %>

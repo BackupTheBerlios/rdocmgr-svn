@@ -28,7 +28,7 @@ namespace :db do
         
         pn = 0
         Project.populate nb_projects do |project|
-            project.name= "Prj_"+Populator.words(1).titleize
+            project.name= "Prj_"+pn.to_s+"_" +Populator.words(1).titleize
             project.project_number = pn.to_s
             pn = pn +1
             i = 0

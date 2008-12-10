@@ -26,6 +26,7 @@ class DocumentTypesController < ApplicationController
   def new
     @document_type = DocumentType.new
     @prjlist = Project.find(:all)
+    @mode="new"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +38,16 @@ class DocumentTypesController < ApplicationController
   def edit
     @document_type = DocumentType.find(params[:id])
     @prjlist = Project.find(:all)
+    @mode="edit"
   end
 
   # POST /document_types
   # POST /document_types.xml
   def create
+       @mode="new"
     @document_type = DocumentType.new(params[:document_type])
     @prjlist = Project.find(:all)
+    
 
     respond_to do |format|
       if @document_type.save
@@ -61,6 +65,7 @@ class DocumentTypesController < ApplicationController
   # PUT /document_types/1.xml
   def update
     @document_type = DocumentType.find(params[:id])
+     @mode="edit"
 
     respond_to do |format|
       if @document_type.update_attributes(params[:document_type])

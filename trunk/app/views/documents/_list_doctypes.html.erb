@@ -1,0 +1,3 @@
+        <select id="document_type_id" name="document[document_type_id]">
+        <%= options_from_collection_for_select @typlist, "id", "name"  , selected=@document.document_type_id %>
+          </select>
