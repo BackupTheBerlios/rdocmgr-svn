@@ -19,12 +19,22 @@ class DocumentVersionsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @document_version }
     end
-  end
+  end   
 
   # GET /document_versions/new
   # GET /document_versions/new.xml
   def new
     @document_version = DocumentVersion.new
+    if params[:document_id] then
+      @document_version.document=Document.find_by_id(params[:document_id])
+      @doc_defined=true
+    else
+      @doc_defined=false
+    end
+     
+   #@user = User.find(params[:id]) 
+    
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -48,7 +58,10 @@ class DocumentVersionsController < ApplicationController
         format.html { redirect_to(@document_version) }
         format.xml  { render :xml => @document_version, :status => :created, :location => @document_version }
       else
-        format.html { render :action => "new" }
+        format.html { 
+          params[:document_id] = @document_version.document.id
+          render :action => "new"   
+        }
         format.xml  { render :xml => @document_version.errors, :status => :unprocessable_entity }
       end
     end

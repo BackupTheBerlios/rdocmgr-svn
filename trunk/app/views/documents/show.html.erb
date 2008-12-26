@@ -5,12 +5,12 @@
 
 <p>
   <b>Project:</b>
-  <%=h @document.project %>
+  <%=h @document.project.name %>
 </p>
 
 <p>
   <b>Document type:</b>
-  <%=h @document.document_type %>
+  <%=h @document.document_type.name %>
 </p>
 
 <p>
@@ -28,6 +28,7 @@
   <%=h @document.fname_suffix %>
 </p>
 
+<%= link_to 'New version', new_document_version_path(:document_id=>@document.id)  %>
 <%= render :partial => "versionlist" %>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |

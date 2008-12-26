@@ -1,15 +1,30 @@
 <h1>New document_version</h1>
-
+<%= debug params %> 
 <% form_for(@document_version) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :id %><br />
+<!-- 
+ <%= f.label :id %><br />
     <%= f.text_field :id %>
-  </p>
+  </p>-->
   <p>
+  	<% if @doc_defined then %>
+Document : <%= @document_version.document.fname_suffix%>
+  <%= f.hidden_field :document_id, :value => @document_version.document.id %>
+
+
+	
+	<%else%>
+  no document id - <%= @document_version.document.fname_suffix%> -
+   <%= f.hidden_field :document_id, :value => @document_version.document.id %>
+<!--  
     <%= f.label :document %><br />
     <%= f.text_field :document %>
+	-->
+	<%end%>
+  plop: <%= @plop %>
+
   </p>
   <p>
     <%= f.label :version %><br />
